@@ -1,8 +1,8 @@
 from datetime import date
 
 class Stock(object):
-    def __init__(self, name, open, close, high, low, price, change, percent_change):
-        self.name = name
+    def __init__(self, symbol, open, close, high, low, price, change, percent_change):
+        self.symbol = symbol
         self.open = open
         self.close = close
         self.high = high

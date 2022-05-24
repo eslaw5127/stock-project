@@ -22,7 +22,7 @@ function = 'TIME_SERIES_DAILY'
 symbol = input("Please enter a symbol: ")
 
 #Daily API
-request_url = f'{BASE_URL}?function={function}&symbol={symbol}&apikey={API_KEY}'
+request_url = f'{BASE_URL}?function=TIME_SERIES_DAILY&symbol={symbol}&apikey={API_KEY}'
 response = requests.get(request_url)
 
 today = date.today()
