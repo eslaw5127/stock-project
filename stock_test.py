@@ -3,6 +3,7 @@ This is test code for the main market program
 
 -The purpose of this code is to get the correct data from the API
 -This code implements the alphavantage APIs for stocks
+-Daily information on the stock
 
 Documentation for the API
 https://www.alphavantage.co/documentation/
@@ -55,3 +56,4 @@ change_percent = data_new["10. change percent"]
 print("Today's Price: " , price)
 print("Today's Change: " , change)
 print("Today's Percent Change: " , change_percent)
+

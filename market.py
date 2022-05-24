@@ -15,5 +15,6 @@ while(option != 'c' and option != 's'):
     print("Would you like to view cryptocurrency (c) or stocks (s)? ")
     option = input("Which option would you like to choose? ")
 
-if option == 'c':
-    print("Crypto")
+if option == 's':
+    print("Viewing for stocks")
+
