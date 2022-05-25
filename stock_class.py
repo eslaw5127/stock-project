@@ -17,7 +17,15 @@ class Stock(object):
     @classmethod
     def print_data(self):
         today = date.today()
+        print()
         print((self.symbol).upper() + "'s data for " + str(today))
+        print("Open: $" + str(self.open))
+        print("Close: $" + str(self.close))
+        print("High: $" + str(self.high))
+        print("Low: $" + str(self.low))
+        print("Price: $" + str(self.price))
+        print("Change: $" + str(self.change) + " (" + self.percent_change + ")")
+
 
     @staticmethod
     def time_series_daily(symbol):
@@ -47,7 +55,7 @@ class Stock(object):
         response = requests.get(url)
 
         data_new = response.json()
-
+    
         data_new = data_new['Global Quote']
         price = data_new["05. price"]
         change = data_new["09. change"]

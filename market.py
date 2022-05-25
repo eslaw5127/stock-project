@@ -50,10 +50,11 @@ while continue_var != "no":
         #initalize the stock with the values needed
         stock = Stock(symbol,open,close,high,low,price,change,change_percent)
         main_list.append(stock)
-
+        
         stock.print_data()
 
-    
+    if option == "c":
+        print("cryptoroooooooooooop")
     continue_var = input("Would you like to to view another? (yes/no) ")       
 
 
