@@ -13,4 +13,6 @@ request_url = f'{BASE_URL}?function={function}&from_currency={from_currency}&to_
 response = requests.get(request_url)
 
 data = response.json()
-print(data)
+data = data["Realtime Currency Exchange Rate"]
+name = data["2. From_Currency Name"]
+price = data["8. Bid Price"]
