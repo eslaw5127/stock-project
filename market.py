@@ -54,7 +54,29 @@ while continue_var != "no":
         stock.print_data()
 
     if option == "c":
-        print("cryptoroooooooooooop")
+        symbol = input("What is the symbol for the cryptocurrency? ")
+        
+        url = f'{BASE_URL}?function=CURRENCY_EXCHANGE_RATE&from_currency={symbol}&to_currency=USD&apikey={API_KEY}'
+        response = requests.get(url)
+
+        data = response.json()
+        while list(data)[0] == "Error Message":
+            print("Invalid symbol please try again")
+            symbol = input("\nWhat is the symbol of the cryptocurrency? ")
+
+            url = f'{BASE_URL}?function=CURRENCY_EXCHANGE_RATE&from_currency={symbol}&to_currency=USD&apikey={API_KEY}'
+
+            response = requests.get(url)
+            data = response.json()
+
+        price,name = Crypto.crypto_rates(symbol)
+        crypto = Crypto(symbol,price,name)
+
+        main_list.append(crypto)
+
+        crypto.print_crypto()
+
+
     continue_var = input("Would you like to to view another? (yes/no) ")       
 
 

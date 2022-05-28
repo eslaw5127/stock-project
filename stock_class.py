@@ -64,7 +64,33 @@ class Stock(object):
         return (price,change,change_percent)
 
 
-class Crypto(Stock):
-    def __init__(self,symbol, price):
-        super().__init__(symbol)
+class Crypto(object):
+    @classmethod
+    def __init__(self,symbol,price,name):
+        self.symbol = symbol
         self.price = price
+        self.name = name
+    
+    @staticmethod
+    def crypto_rates(symbol):
+        API_KEY = '8E1LCLI81IQHDHAY'
+        BASE_URL = 'https://www.alphavantage.co/query'
+        to_currency = "USD"
+        function = "CURRENCY_EXCHANGE_RATE"
+
+        request_url = f'{BASE_URL}?function={function}&from_currency={symbol}&to_currency={to_currency}&apikey={API_KEY}'
+        response = requests.get(request_url)
+
+        data = response.json()
+        data = data["Realtime Currency Exchange Rate"]
+        name = data["2. From_Currency Name"]
+        price = data["8. Bid Price"]
+
+        return (price,name)
+
+    @classmethod
+    def print_crypto(self):
+        today = date.today()
+        print()
+        print((self.name).upper() + "'s data for " + str(today))
+        print("Price:" , str(round(float(self.price),2)))
